@@ -12,6 +12,12 @@ namespace nagarro_deepak
 
             // BinarySearch obj = new BinarySearch();
             // obj.main2();
+
+            Node head = List.createLL();
+            List.printLL(head);
+            int x = int.Parse(Console.ReadLine());
+            head = List.deleteNode(head, x);
+            List.printLL(head);
         }
     }
 }
