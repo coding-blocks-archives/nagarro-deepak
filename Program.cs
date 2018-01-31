@@ -15,8 +15,18 @@ namespace nagarro_deepak
 
             Node head = List.createLL();
             List.printLL(head);
-            int x = int.Parse(Console.ReadLine());
-            head = List.deleteNode(head, x);
+
+            // int x = int.Parse(Console.ReadLine());
+            // head = List.deleteNode(head, x);
+            // List.printLL(head);
+
+            // Node mid = List.midPoint(head);
+            // Console.WriteLine(mid + " " + mid.data);
+
+            // head = List.mergeSort(head);
+            // List.printLL(head);
+
+            head = List.BubbleSort(head);
             List.printLL(head);
         }
     }
