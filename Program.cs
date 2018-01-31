@@ -10,8 +10,8 @@ namespace nagarro_deepak
             // Console.WriteLine("Hello World!");
             // InversionCount.main2();
 
-            BinarySearch obj = new BinarySearch();
-            obj.main2();
+            // BinarySearch obj = new BinarySearch();
+            // obj.main2();
         }
     }
 }
