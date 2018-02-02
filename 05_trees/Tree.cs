@@ -91,14 +91,88 @@ namespace nagarro_deepak
 
         }
 
+        static void push_left_right(Stack<TreeNode> cur, Stack<TreeNode> next){
+            while(cur.Count != 0){
+                var top = cur.Pop();
+                Console.Write(top.data + " ");
+                if (top.left != null) next.Push(top.left);
+                if (top.right != null) next.Push(top.right);
+            }
+        }
+
+        static void push_right_left(Stack<TreeNode> cur, Stack<TreeNode> next){
+            while(cur.Count != 0){
+                var top = cur.Pop();
+                Console.Write(top.data + " ");
+                if (top.right != null) next.Push(top.right);
+                if (top.left != null) next.Push(top.left);
+            }
+        }
+
+
+        public static void zigZagPrint(TreeNode root){
+            Stack<TreeNode> curLevel = new Stack<TreeNode>();
+            Stack<TreeNode> nextLevel = new Stack<TreeNode>();
+
+            int level = 1;
+            curLevel.Push(root);
+
+            while(curLevel.Count != 0){
+                if(level % 2 == 0){
+                    push_right_left(curLevel, nextLevel);
+                }
+                else{
+                    push_left_right(curLevel, nextLevel);
+                }
+                ++level;
+                // swap stacks
+                Stack<TreeNode> tmp = curLevel;
+                curLevel = nextLevel;
+                nextLevel = tmp;
+            }
+        }
+
+        static int inf = (int)1e6;
+
+        static void TopView(TreeNode root, bool[] visited, int offset, int hd){
+            if (root == null){
+                return;
+            }
+
+            TopView(root.left, visited, offset, hd - 1); // left
+            if (visited[hd + offset] != true){
+                visited[hd + offset] = true;
+                Console.Write(root.data + " ");
+            }
+            TopView(root.right, visited, offset, hd + 1);
+        }
+
+        static void getSpan(TreeNode root, ref int minHd, ref int maxHd, int curHd){
+            if (root == null){
+                return;
+            }
+
+            minHd = Math.Min(minHd, curHd);
+            maxHd = Math.Max(maxHd, curHd);
+
+            getSpan(root.left, ref minHd, ref maxHd, curHd - 1);
+            getSpan(root.right, ref minHd, ref maxHd, curHd + 1);
+        }
+
+        static public void TopView(TreeNode root){
+            int minHorizontalDist = inf;
+            int maxHorizontalDist = -inf;
+
+            getSpan(root, ref minHorizontalDist, ref maxHorizontalDist, 0);
+            int n = maxHorizontalDist - minHorizontalDist + 1;
+            bool[] visited = new bool[n];   // initially all false
+
+            TopView(root, visited, Math.Abs(minHorizontalDist), 0);
+        }
 
         // arrToBinary(){}
-        // zigZag(){}
-        // TopView(){}
         // nextRightPointers(){}
-
         // LowestCommonAncestor(){}
-        // binaryTreeFromInorder(){}
 
     }
 }

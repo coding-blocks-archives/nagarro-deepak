@@ -40,10 +40,12 @@ namespace nagarro_deepak
             // int ans = Tree.height(root);
             // Console.WriteLine(ans);
 
-            Pair ans = Tree.heightBalanced(root);
-            Console.WriteLine(ans.height + " " + ans.isBal);
+            // Pair ans = Tree.heightBalanced(root);
+            // Console.WriteLine(ans.height + " " + ans.isBal);
 
-        
+            // Tree.zigZagPrint(root);
+
+            // Tree.TopView(root);     
 
         }
     }
