@@ -170,7 +170,29 @@ namespace nagarro_deepak
             TopView(root, visited, Math.Abs(minHorizontalDist), 0);
         }
 
-        // arrToBinary(){}
+
+        static int search(int[] arr, int be, int en, int data){
+            while(be <= en){
+                if (arr[be]== data) return be;
+                ++be;
+            }
+            return -1;  // I am using input is always correct
+        }
+        public static TreeNode arrToBinary(int[] inOrder, int[] post, 
+                                            int be, int en, ref int postIdx){
+
+            if (be > en){
+                return null;
+            }
+
+            TreeNode root = new TreeNode(post[postIdx]);
+            postIdx--;
+            int pos = search(inOrder, be, en, root.data);
+
+            root.right = arrToBinary(inOrder, post, pos + 1, en, ref postIdx);
+            root.left = arrToBinary(inOrder, post, be, pos-1, ref postIdx);
+            return root;
+        }
         // nextRightPointers(){}
         // LowestCommonAncestor(){}
 

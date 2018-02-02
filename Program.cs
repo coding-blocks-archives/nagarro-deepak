@@ -2,7 +2,7 @@
 
 namespace nagarro_deepak
 {
-     class Program
+    class Program
     {
 
         static void Main(string[] args)
@@ -33,9 +33,9 @@ namespace nagarro_deepak
             // List.printLL(head);
 
             // 02-Feb-2018
-            TreeNode root = Tree.createTree();
-            Tree.printLevelOrder(root);
-            Console.WriteLine("\n----------------------");
+            // TreeNode root = Tree.createTree();
+            // Tree.printLevelOrder(root);
+            // Console.WriteLine("\n----------------------");
 
             // int ans = Tree.height(root);
             // Console.WriteLine(ans);
@@ -46,6 +46,14 @@ namespace nagarro_deepak
             // Tree.zigZagPrint(root);
 
             // Tree.TopView(root);     
+
+            int[] inOrder = new int[] { 4, 2, 6, 7, 1, 3 };
+            int[] post = new int[] { 4, 7, 6, 2, 3, 1 };
+            int postIdx = post.Length - 1;
+            TreeNode root = Tree.arrToBinary(inOrder, post, 0,
+                                             inOrder.Length - 1, ref postIdx);
+            Tree.printLevelOrder(root);
+
 
         }
     }
