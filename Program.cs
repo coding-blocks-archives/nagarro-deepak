@@ -32,8 +32,18 @@ namespace nagarro_deepak
             // List.waveSort(head);
             // List.printLL(head);
 
+            // 02-Feb-2018
             TreeNode root = Tree.createTree();
             Tree.printLevelOrder(root);
+            Console.WriteLine("\n----------------------");
+
+            // int ans = Tree.height(root);
+            // Console.WriteLine(ans);
+
+            Pair ans = Tree.heightBalanced(root);
+            Console.WriteLine(ans.height + " " + ans.isBal);
+
+        
 
         }
     }

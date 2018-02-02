@@ -36,13 +36,16 @@ namespace nagarro_deepak
             while (q.Count != 0)
             {
                 TreeNode cur = q.Dequeue();
-                if (cur == MARKER){
-                    if (q.Count != 0){
+                if (cur == MARKER)
+                {
+                    if (q.Count != 0)
+                    {
                         Console.WriteLine();
                         q.Enqueue(MARKER);
                         continue;
                     }
-                    else {
+                    else
+                    {
                         break;
                     }
                 }
@@ -52,13 +55,49 @@ namespace nagarro_deepak
             }
         }
 
-        // height(){}
+        static public int height(TreeNode root)
+        {
+            if (root == null) return 0;
+
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+
+            int ans = Math.Max(leftHeight, rightHeight) + 1;
+            return ans;
+
+        }
+        static public Pair heightBalanced(TreeNode root)
+        {
+            if (root == null)
+            {
+                Pair p = new Pair();
+                p.isBal = true;
+                p.height = 0;
+                return p;
+            }
+
+            Pair lt = heightBalanced(root.left);
+            Pair rt = heightBalanced(root.right);
+            bool isRootBal = Math.Abs(lt.height - rt.height) <= 1;
+            
+            int curHt = Math.Max(lt.height, rt.height) + 1;
+            bool isCurBal = isRootBal && lt.isBal && rt.isBal;
+
+            Pair ans = new Pair();
+            ans.height = curHt;
+            ans.isBal = isCurBal;
+
+            return ans;          
+
+        }
+
+
         // arrToBinary(){}
-        // heightBalanced(){}
         // zigZag(){}
         // TopView(){}
-        // LowestCommonAncestor(){}
         // nextRightPointers(){}
+
+        // LowestCommonAncestor(){}
         // binaryTreeFromInorder(){}
 
     }
