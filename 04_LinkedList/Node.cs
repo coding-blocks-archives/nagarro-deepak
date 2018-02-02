@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 namespace nagarro_deepak{
     public class Node{
         public int data;
@@ -179,6 +181,30 @@ namespace nagarro_deepak{
             }
             return head;
         }
-        // public static ??? waveSort(Node head){}
+        
+        public static void waveSort(Node head){
+            Stack<Node> s = new Stack<Node>();
+            Node mid = List.midPoint(head);
+            Node b = mid.next;
+            mid.next = null;
+
+            while(b != null){
+                s.Push(b);
+                Node tmp = b.next;
+                b.next = null;
+                b = tmp;
+            } 
+
+            // arrangement
+            Node a = head;
+            while(s.Count != 0){
+                Node cur = s.Peek();
+                s.Pop();
+                Node tmp = a.next;
+                a.next = cur;
+                cur.next = tmp;
+                a = tmp;
+            }
+        }
     }
 }
