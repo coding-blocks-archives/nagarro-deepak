@@ -4,9 +4,8 @@ using System.Text;
 
 namespace nagarro_deepak
 {
-    class HeapSort_Amit
+    class HeapSort1
     {
-
         private static void Swap(int[] arr, int left, int right)
         {
             int temp = arr[left];
@@ -14,18 +13,42 @@ namespace nagarro_deepak
             arr[right] = temp;
         }
 
-        private static void Heapify(int[] arr, int size, int indx)
+        private static void MaxHeapify(int[] arr, int size, int indx)
+        {
+            int LeftChild = 2 * indx + 1;
+            int RightChild = 2 * indx + 2;
+            int Largest = indx;
+
+            if (LeftChild < size && arr[LeftChild] > arr[Largest])
+            {
+                Largest = LeftChild;
+            }
+
+            if (RightChild < size && arr[RightChild] > arr[Largest])
+            {
+                Largest = RightChild;
+            }
+
+            if (Largest != indx)
+            {
+                Swap(arr, Largest, indx);
+
+                MaxHeapify(arr, size, Largest);
+            }
+        }
+
+        private static void MinHeapify(int[] arr, int size, int indx)
         {
             int LeftChild = 2 * indx + 1;
             int RightChild = 2 * indx + 2;
             int smallest = indx;
 
-            if (LeftChild < size && arr[LeftChild] > arr[smallest])
+            if (LeftChild < size && arr[LeftChild] < arr[smallest])
             {
                 smallest = LeftChild;
             }
 
-            if (RightChild < size && arr[RightChild] > arr[smallest])
+            if (RightChild < size && arr[RightChild] < arr[smallest])
             {
                 smallest = RightChild;
             }
@@ -34,7 +57,7 @@ namespace nagarro_deepak
             {
                 Swap(arr, smallest, indx);
 
-                Heapify(arr, size, smallest);
+                MaxHeapify(arr, size, smallest);
             }
         }
 
@@ -42,13 +65,13 @@ namespace nagarro_deepak
         {
             for (int i = size / 2 - 1; i >= 0; i--)
             {
-                Heapify(arr, size, i);
+                MaxHeapify(arr, size, i);
             }
 
             for (int i = size - 1; i >= 0; i--)
             {
                 Swap(arr, 0, i);
-                Heapify(arr, i, 0);
+                MaxHeapify(arr, i, 0);
             }
 
         }
