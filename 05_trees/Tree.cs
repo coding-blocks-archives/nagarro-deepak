@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using kvp = System.Collections.Generic.KeyValuePair<TreeNode, int>; // something fancy
 
 namespace nagarro_deepak
 {
@@ -159,16 +160,62 @@ namespace nagarro_deepak
             getSpan(root.right, ref minHd, ref maxHd, curHd + 1);
         }
 
+        // static public void TopView(TreeNode root){
+        //     int minHorizontalDist = inf;
+        //     int maxHorizontalDist = -inf;
+
+        //     getSpan(root, ref minHorizontalDist, ref maxHorizontalDist, 0);
+        //     int n = maxHorizontalDist - minHorizontalDist + 1;
+        //     bool[] visited = new bool[n];   // initially all false
+
+        //     TopView(root, visited, Math.Abs(minHorizontalDist), 0);
+        // }
+
+        
+       
         static public void TopView(TreeNode root){
-            int minHorizontalDist = inf;
-            int maxHorizontalDist = -inf;
+            Queue<KeyValuePair<TreeNode, int> > q = new Queue<KeyValuePair<TreeNode, int> >();
+            Dictionary<int, TreeNode> d = new Dictionary<int, TreeNode>();
 
-            getSpan(root, ref minHorizontalDist, ref maxHorizontalDist, 0);
-            int n = maxHorizontalDist - minHorizontalDist + 1;
-            bool[] visited = new bool[n];   // initially all false
+            // kvp MARKER = new kvp(null, 0);
 
-            TopView(root, visited, Math.Abs(minHorizontalDist), 0);
+            q.Enqueue(new kvp(root, 0));
+            q.Enqueue(new kvp(null, 0));
+
+            while(q.Count != 0){
+                kvp curPair = q.Dequeue();
+                
+                TreeNode cur = curPair.Key;
+                int curDist = curPair.Value;
+
+                if (d.ContainsKey(curDist) == false){
+                    d.Add(curDist, cur);
+                }
+
+                if (cur == null){
+                    if (q.Count == 0){
+                        // end of the cur level
+                        q.Enqueue(new kvp(null, 0));
+                        continue;
+                    }
+                }
+
+                if (cur.left != null){
+                    q.Enqueue(new kvp(cur.left, curDist - 1));
+                }
+                if (cur.right != null){
+                    q.Enqueue(new kvp(cur.right, curDist + 1));
+                }
+            }
+
+
+            // print the dictionary
+            foreach(var e in d){
+                Console.Write(e.Value.data + " ");
+            }
         }
+
+
 
 
         static int search(int[] arr, int be, int en, int data){

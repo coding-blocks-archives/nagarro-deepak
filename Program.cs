@@ -33,9 +33,9 @@ namespace nagarro_deepak
             // List.printLL(head);
 
             // 02-Feb-2018
-            // TreeNode root = Tree.createTree();
-            // Tree.printLevelOrder(root);
-            // Console.WriteLine("\n----------------------");
+            TreeNode root = Tree.createTree();
+            Tree.printLevelOrder(root);
+            Console.WriteLine("\n----------------------");
 
             // int ans = Tree.height(root);
             // Console.WriteLine(ans);
@@ -45,7 +45,7 @@ namespace nagarro_deepak
 
             // Tree.zigZagPrint(root);
 
-            // Tree.TopView(root);     
+            Tree.TopView(root);     
 
             // int[] inOrder = new int[] { 4, 2, 6, 7, 1, 3 };
             // int[] post = new int[] { 4, 7, 6, 2, 3, 1 };
@@ -55,7 +55,7 @@ namespace nagarro_deepak
             // Tree.printLevelOrder(root);
 
             // HeapMain.main2();
-            nagarro_hashmap.HashMain.main2();
+            // nagarro_hashmap.HashMain.main2();
 
 
         }
