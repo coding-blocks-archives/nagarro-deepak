@@ -258,13 +258,33 @@ namespace nagarro_deepak
             {
                 slow = slow.next;
                 fast = fast.next.next;
-                // if (slow.next == fast.next){
                 if (slow.next == fast.next)
+
+                // if (slow.next == fast.next)
                 {
                     return true;
                 }
             }
             return false;
+        }
+
+        public static void removeCycle(Node head){
+            Node slow = head;
+            Node fast = head;
+            while(slow.next != null && fast.next != null && fast.next.next != null){
+                slow = slow.next;
+                fast = fast.next.next;
+                if (slow == fast) break;
+            }
+
+            // slow and fast are @ meeting point
+            Node start = head;
+            Node nodeInsideLoop = slow;
+            while(start.next != nodeInsideLoop.next){
+                start = start.next;
+                nodeInsideLoop = nodeInsideLoop.next;
+            } 
+            nodeInsideLoop.next = null;
         }
     }
 }

@@ -13,10 +13,8 @@ namespace nagarro_deepak
             // BinarySearch obj = new BinarySearch();
             // obj.main2();
 
-            Node head = List.createLL();
-            List.printLL(head);
-
-            // head.next.next.next.next = head.next;
+            // Node head = List.createLL();
+            // List.printLL(head);
 
             // int x = int.Parse(Console.ReadLine());
             // head = List.deleteNode(head, x);
@@ -57,10 +55,18 @@ namespace nagarro_deepak
             // Tree.printLevelOrder(root);
 
             // 05-Feb-2018
+
             // HeapMain.main2();
-            // nagarro_hashmap.HashMain.main2();
-                
+            // nagarro_hashmap.HashMain.main2();  
+            // Node head = List.createLL();
+            // List.printLL(head);
+            // head.next.next.next.next = head.next;
             // Console.WriteLine(List.detectCycle(head));
+            // List.removeCycle(head);
+            // List.printLL(head);
+
+            BST.bsTree.main2();
+
 
 
         }
