@@ -47,13 +47,12 @@ namespace nagarro_deepak
 
             // Tree.TopView(root);     
 
-            int[] inOrder = new int[] { 4, 2, 6, 7, 1, 3 };
-            int[] post = new int[] { 4, 7, 6, 2, 3, 1 };
-            int postIdx = post.Length - 1;
-            TreeNode root = Tree.arrToBinary(inOrder, post, 0,
-                                             inOrder.Length - 1, ref postIdx);
-            Tree.printLevelOrder(root);
-
+        //    int[] inOrder = new int[] { 4, 2, 6, 7, 1, 3 };
+        //    int[] post = new int[] { 4, 7, 6, 2, 3, 1 };
+        //    int postIdx = post.Length - 1;
+        //    TreeNode root = Tree.arrToBinary(inOrder, post, 0,
+        //                                     inOrder.Length - 1, ref postIdx);
+        //    Tree.printLevelOrder(root);
 
         }
     }

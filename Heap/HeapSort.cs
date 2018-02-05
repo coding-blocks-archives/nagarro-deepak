@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace nagarro_deepak
 {
@@ -85,22 +83,22 @@ namespace nagarro_deepak
             Console.WriteLine();
         }
 
-        static void Main(string[] args)
-        {
-            int size = int.Parse(Console.ReadLine());
+        /*static void Main(string[] args)
+          {
+              int size = int.Parse(Console.ReadLine());
 
-            string[] temp = Console.ReadLine().Split(' ');
-            int[] arr = new int[size];
+              string[] temp = Console.ReadLine().Split(' ');
+              int[] arr = new int[size];
 
-            for (int i = 0; i < temp.Length; i++)
-            {
-                arr[i] = int.Parse(temp[i]);
-            }
+              for (int i = 0; i < temp.Length; i++)
+              {
+                  arr[i] = int.Parse(temp[i]);
+              }
 
-            HeapSort(arr, size);
+              HeapSort(arr, size);
 
-            PrintArray(arr);
-
-        }
+              PrintArray(arr);
+          }
+          */
     }
 }
