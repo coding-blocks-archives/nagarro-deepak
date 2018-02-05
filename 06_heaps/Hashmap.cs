@@ -29,16 +29,17 @@ namespace nagarro_hashmap
         int capacity;
         List<Pair> table;
 
+        void setNull(List<Pair> l, int c){
+            for(int i = 0; i < c; ++i){
+                l.Add(null);
+            }
+        }
         public Hashmap()
         {
             sze = 0;
             capacity = 7;
             table = new List<Pair>(capacity);
-            Console.WriteLine(table.Capacity);
-            Console.WriteLine(table[0]);
-            // for(int i = 0; i < capacity; ++i){
-            //     Console.WriteLine(i + " " + table[i]);
-            // }
+            setNull(table, capacity); 
         }
 
         double LoadFactor()
@@ -56,6 +57,7 @@ namespace nagarro_hashmap
 
             capacity = 2 * oldCapacity;
             table = new List<Pair>(capacity);
+            setNull(table, capacity);
 
             for (int i = 0; i < oldCapacity; ++i)
             {
@@ -84,6 +86,7 @@ namespace nagarro_hashmap
             for (int i = 0; i < name.Length; ++i)
             {
                 ans += ((name[i] % capacity) * mul % capacity) % capacity;
+                ans %= capacity;
                 mul = ((mul % capacity) * (PRIME % capacity)) % capacity;
             }
             return ans;
@@ -102,7 +105,7 @@ namespace nagarro_hashmap
             int idx = this.HashFunction(name);
 
             Pair cur = new Pair(name, number);
-
+            // Console.WriteLine("idx" + idx);
             Pair head = table[idx];
             // insert cur at the head of list(head) 
             table[idx] = insertAtHead(head, cur);
@@ -141,9 +144,9 @@ namespace nagarro_hashmap
         public static void main2()
         {
             Hashmap map = new Hashmap();
-            // map.Add("abc", "123");
-            // Console.WriteLine(map.GetNumber("abc"));
-            // Console.WriteLine(map.GetNumber("def"));
+            map.Add("abc", "123");
+            Console.WriteLine(map.GetNumber("abc"));
+            Console.WriteLine(map.GetNumber("def"));  
         }
 
     }
