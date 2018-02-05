@@ -175,7 +175,7 @@ namespace nagarro_deepak
        
         static public void TopView(TreeNode root){
             Queue<KeyValuePair<TreeNode, int> > q = new Queue<KeyValuePair<TreeNode, int> >();
-            Dictionary<int, TreeNode> d = new Dictionary<int, TreeNode>();
+            SortedDictionary<int, TreeNode> d = new SortedDictionary<int, TreeNode>();
 
             // kvp MARKER = new kvp(null, 0);
 
@@ -193,11 +193,11 @@ namespace nagarro_deepak
                 }
 
                 if (cur == null){
-                    if (q.Count == 0){
+                    if (q.Count != 0){
                         // end of the cur level
-                        q.Enqueue(new kvp(null, 0));
-                        continue;
+                        q.Enqueue(new kvp(null, 0)); 
                     }
+                    continue;
                 }
 
                 if (cur.left != null){

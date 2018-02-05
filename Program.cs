@@ -13,8 +13,10 @@ namespace nagarro_deepak
             // BinarySearch obj = new BinarySearch();
             // obj.main2();
 
-            // Node head = List.createLL();
-            // List.printLL(head);
+            Node head = List.createLL();
+            List.printLL(head);
+
+            // head.next.next.next.next = head.next;
 
             // int x = int.Parse(Console.ReadLine());
             // head = List.deleteNode(head, x);
@@ -33,9 +35,9 @@ namespace nagarro_deepak
             // List.printLL(head);
 
             // 02-Feb-2018
-            TreeNode root = Tree.createTree();
-            Tree.printLevelOrder(root);
-            Console.WriteLine("\n----------------------");
+            // TreeNode root = Tree.createTree();
+            // Tree.printLevelOrder(root);
+            // Console.WriteLine("\n----------------------");
 
             // int ans = Tree.height(root);
             // Console.WriteLine(ans);
@@ -45,7 +47,7 @@ namespace nagarro_deepak
 
             // Tree.zigZagPrint(root);
 
-            Tree.TopView(root);     
+            // Tree.TopView(root);     
 
             // int[] inOrder = new int[] { 4, 2, 6, 7, 1, 3 };
             // int[] post = new int[] { 4, 7, 6, 2, 3, 1 };
@@ -54,8 +56,11 @@ namespace nagarro_deepak
             //                                  inOrder.Length - 1, ref postIdx);
             // Tree.printLevelOrder(root);
 
+            // 05-Feb-2018
             // HeapMain.main2();
             // nagarro_hashmap.HashMain.main2();
+                
+            // Console.WriteLine(List.detectCycle(head));
 
 
         }
