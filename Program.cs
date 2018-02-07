@@ -68,7 +68,8 @@ namespace nagarro_deepak
             // BST.bsTree.main2();
 
             // 07-Feb-18
-            TreeNodeNext.main2();
+            // TreeNodeNext.main2();
+            DP.DynamicProgramming.main();
 
 
 
