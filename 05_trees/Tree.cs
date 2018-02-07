@@ -7,7 +7,7 @@ namespace nagarro_deepak
 
     class Tree
     {
-        public static TreeNode createTree()
+        public static TreeNodeNext createTree()
         {
             // dfs
             int x = int.Parse(Console.ReadLine());
@@ -17,7 +17,8 @@ namespace nagarro_deepak
                 return null;
             }
 
-            TreeNode root = new TreeNode(x);
+            // TreeNode root = new TreeNode(x);
+            TreeNodeNext root = new TreeNodeNext(x);
             // Console.WriteLine("Enter left child of "  + root.data + " ");
             root.left = createTree();
             // Console.WriteLine("Enter right child of "  + root.data + " ");
