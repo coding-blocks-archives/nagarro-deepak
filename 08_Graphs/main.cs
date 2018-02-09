@@ -110,8 +110,8 @@ namespace GRAPH
             // }
 
             // int ans = g.shortestDist(1, 36);
-            int ans = minMoves(snakeLadder, 37, 8, 27);
-            Console.WriteLine(ans);
+            // int ans = minMoves(snakeLadder, 37, 8, 27);
+            // Console.WriteLine(ans);
         }
     }
 

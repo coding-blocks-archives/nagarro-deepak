@@ -72,7 +72,8 @@ namespace nagarro_deepak
             // DP.DynamicProgramming.main();
 
             // 09-Feb-18
-            GRAPH.Main1.main();
+            // GRAPH.Main1.main();
+            GRAPH.KMP.main();
 
         }
     }
