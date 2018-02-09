@@ -35,5 +35,41 @@ namespace GRAPH{
                 Console.WriteLine();
             }
         }
+
+        void dfs(int src, bool[] visited){
+            Console.Write(src + " ");
+            visited[src] = true;
+            
+            for(int i = 0; i < adjList[src].Count; ++i){
+                int ngbr = adjList[src][i];
+                if (visited[ngbr] == false){
+                    dfs(ngbr, visited);
+                }
+            } 
+        }
+        public void dfs(int src){
+            bool[] visited = new bool[nVtx];
+            dfs(src, visited);
+        }
+
+        public void bfs(int src){
+            bool[] visited = new bool[nVtx];
+            Queue<int> q = new Queue<int>();
+
+            q.Enqueue(src);
+            visited[src] = true;
+            while(q.Count != 0){
+                int cur = q.Dequeue();
+                Console.Write(cur + " ");
+                li curNgbrList = adjList[cur];
+                for(int i = 0; i < curNgbrList.Count; ++i){
+                    int ngbr = curNgbrList[i];
+                    if(visited[ngbr] == false){
+                        visited[ngbr] = true;
+                        q.Enqueue(ngbr);
+                    }
+                }
+            }
+        }
     }
 }
