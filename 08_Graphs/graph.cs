@@ -71,5 +71,30 @@ namespace GRAPH{
                 }
             }
         }
+
+          public int shortestDist(int src, int dest){
+            bool[] visited = new bool[nVtx];
+            int[] distance = new int[nVtx];
+            Queue<int> q = new Queue<int>();
+
+            q.Enqueue(src);
+            visited[src] = true;
+            distance[src] = 0;
+
+            while(q.Count != 0){
+                int cur = q.Dequeue();
+                // Console.Write(cur + " ");
+                li curNgbrList = adjList[cur];
+                for(int i = 0; i < curNgbrList.Count; ++i){
+                    int ngbr = curNgbrList[i];
+                    if(visited[ngbr] == false){
+                        distance[ngbr] = 1 + distance[cur];
+                        visited[ngbr] = true;
+                        q.Enqueue(ngbr);
+                    }
+                }
+            }
+            return distance[dest];
+        }
     }
 }
